@@ -10,14 +10,14 @@ public class CMain : MonoBehaviour {
 
 		socket = new SocketIOClient.Client("http://127.0.0.1:80/");
 		socket.On("connect", (fn) => {
-				Debug.Log ("connect - socket");
+			Debug.Log ("connect - socket");
 
-				Dictionary<string, string> args = new Dictionary<string, string>();
-				args.Add("msg", "what's up?");
-				socket.Emit("SEND", args);
+			Dictionary<string, string> args = new Dictionary<string, string>();
+			args.Add("msg", "what's up?");
+			socket.Emit("SEND", args);
 		});
 		socket.On("RECV", (data) => {
-				Debug.Log (data.Json.ToJsonString());
+			Debug.Log (data.Json.ToJsonString());
 		});
 		socket.Connect();
 	}
