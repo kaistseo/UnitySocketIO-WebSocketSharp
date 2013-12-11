@@ -1,4 +1,4 @@
-UnitySocketIO_WebSocketSharp
+UnitySocketIO-WebSocketSharp
 ============================
 
 [UnitySocketIO](https://github.com/NetEase/UnitySocketIO) using [websocket-sharp](https://github.com/sta/websocket-sharp) instead of [WebSocket4Net](https://github.com/kerryjiang/WebSocket4Net)
