@@ -7,6 +7,10 @@ UnitySocketIO-WebSocketSharp
 - There are times when the MessageReceived event handler is not called, even though the client has received a message packet from the server, and the message silently gets dropped.
 - When WebSocket4Net library used by UnitySocketIO was replaced with websocket-sharp, the problem has been solved.
 
+###How to use###
+
+Copy all the DLLs from /SocketIO/bin/Debug/ to any folder of your project (e.g. Assets/Plugins/SocketIO/)
+
 ###Avoiding too long wait on Close event###
 
 websocket-sharp uses AutoResetEvent.WaitOne on Close event, but it looks like socket.io server doesn't return Close frame and the client must wait until the timeout (5 seconds) expires.
