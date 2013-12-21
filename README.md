@@ -31,7 +31,6 @@ private bool close (byte [] frameAsBytes, int timeOut, Func<bool> release)
 
 If you want to build this library for iOS devices, you have to copy all the sources of [SimpleJson](https://github.com/facebook-csharp-sdk/simple-json), [websocket-sharp](https://github.com/sta/websocket-sharp), [UnitySocketIO](https://github.com/NetEase/UnitySocketIO) to a folder of your project, instead of the DLLs.
 
-Do not forget to set "Api Compatibility Level" to ".NET 2.0".
 And before you build it, you have to modify WebSocket.cs of websocket-sharp as follows:
 
 ```
@@ -44,3 +43,6 @@ private void send (Opcode opcode, byte [] data, Action<bool> completed)
   ...
 }
 ```  
+
+And then, uncomment "#define SIMPLE_JSON_NO_LINQ_EXPRESSION" in SimpleJson.cs.
+Do not forget to set "Api Compatibility Level" to ".NET 2.0".
