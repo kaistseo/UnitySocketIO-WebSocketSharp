@@ -44,5 +44,24 @@ private void send (Opcode opcode, byte [] data, Action<bool> completed)
 }
 ```  
 
+- Modify Net/ListenerAsyncResult.cs of websocket-sharp as follows:
+
+```
+internal void Complete (Exception exc)
+{
+  ...
+  //ThreadPool.UnsafeQueueUserWorkItem (InvokeCB, this);
+  ThreadPool.QueueUserWorkItem (InvokeCB, this);
+}
+
+...
+
+internal void Complete (HttpListenerContext context, bool synch)
+{
+  ...
+  //ThreadPool.UnsafeQueueUserWorkItem (InvokeCB, this);
+  ThreadPool.QueueUserWorkItem (InvokeCB, this);
+}
+```
+
 - Uncomment "#define SIMPLE_JSON_NO_LINQ_EXPRESSION" in SimpleJson.cs.
-- Do not forget to set "Api Compatibility Level" to ".NET 2.0".
