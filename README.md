@@ -35,11 +35,19 @@ If you want to build this library for iOS devices, you have to copy all the sour
 
 ```
 internal delegate bool SendBytesFunc (Opcode opcode, byte [] data);
+internal delegate bool SendStreamFunc (Opcode opcode, Stream stream);
 
 private void send (Opcode opcode, byte [] data, Action<bool> completed)
 {
   //Func<Opcode, byte [], bool> sender = send;
   SendBytesFunc sender = send;
+  ...
+}
+
+private void send (Opcode opcode, Stream stream, Action<bool> completed)
+{
+  //Func<Opcode, Stream, bool> sender = send;
+  SendStreamFunc sender = send;
   ...
 }
 ```  
