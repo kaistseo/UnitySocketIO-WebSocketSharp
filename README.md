@@ -29,7 +29,7 @@ private bool close (byte [] frameAsBytes, int timeOut, Func<bool> release)
 
 ### Building for iOS devices
 
-If you want to build this library for iOS devices, you have to copy all the sources of [SimpleJson](https://github.com/facebook-csharp-sdk/simple-json), [websocket-sharp](https://github.com/sta/websocket-sharp), [UnitySocketIO](https://github.com/NetEase/UnitySocketIO) to a folder of your project, instead of the DLLs.
+If you want to build this library for iOS devices, you have to copy all the sources of [SimpleJson](https://github.com/facebook-csharp-sdk/simple-json), [websocket-sharp](https://github.com/sta/websocket-sharp), UnitySocketIO-WebSocketSharp to a folder of your project, instead of the DLLs.
 
 - And before you build it, you have to modify WebSocket.cs of websocket-sharp as follows:
 
