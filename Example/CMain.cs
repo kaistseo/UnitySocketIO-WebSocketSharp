@@ -19,6 +19,9 @@ public class CMain : MonoBehaviour {
 		socket.On("RECV", (data) => {
 			Debug.Log (data.Json.ToJsonString());
 		});
+		socket.Error += (sender, e) => {
+			Debug.Log ("socket Error: " + e.Message.ToString ());
+		};
 		socket.Connect();
 	}
 
