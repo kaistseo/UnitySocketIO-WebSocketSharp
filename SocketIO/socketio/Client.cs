@@ -529,6 +529,12 @@ namespace SocketIOClient
 		// Housekeeping
 		protected void OnHeartBeatTimerCallback(object state)
 		{
+			if (state != null)
+			{
+				this.OnErrorEvent(this, new ErrorEventArgs("heartbeat_timeout"));
+				return;
+			}
+
 			if (this.ReadyState == WebSocketState.OPEN)
 			{
 				IMessage msg = new Heartbeat();
@@ -541,6 +547,7 @@ namespace SocketIOClient
 						{
 							this.HeartBeatTimerEvent.BeginInvoke(this, EventArgs.Empty, EndAsyncEvent, null);
 						}
+						this.socketHeartBeatTimer.Change(HandShake.HeartbeatInterval, HandShake.HeartbeatInterval);
 					}
 				}
 				catch(Exception ex)
