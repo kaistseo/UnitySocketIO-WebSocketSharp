@@ -8,11 +8,11 @@ UnitySocketIO-WebSocketSharp
 - When WebSocket4Net library used by UnitySocketIO was replaced with websocket-sharp, the problem has been solved.
 - [SimpleJson](https://github.com/facebook-csharp-sdk/simple-json) library used by UnitySocketIO was updated to the latest version (v0.30.0), because the old one caused crashes in some cases.
 
-###How to use###
+### How to use
 
 Copy all the DLLs from /SocketIO/bin/Debug/ to any folder of your project (e.g. Assets/Plugins/SocketIO/)
 
-###Avoiding too long wait on Close event###
+### Avoiding too long wait on Close event
 
 websocket-sharp uses AutoResetEvent.WaitOne on Close event, but it looks like socket.io server doesn't return Close frame and the client must wait until the timeout (5 seconds) expires.
 
@@ -75,7 +75,7 @@ internal void Complete (HttpListenerContext context, bool synch)
 - Uncomment "#define SIMPLE_JSON_NO_LINQ_EXPRESSION" in SimpleJson.cs.
 
 
-##License
+## License
 (The MIT License)
 
 Copyright (c) 2014 kaistseo and other contributors
